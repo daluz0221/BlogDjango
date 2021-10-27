@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +8,13 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     
     <title>Blog</title>
 </head>
 <body>
     
+   
 
     
 <!-- header starts -->
@@ -61,80 +63,35 @@
 
         <div class="posts-container">
 
-            <div class="post">
-                <img src="https://www.educaciontrespuntocero.com/wp-content/uploads/2019/10/3314.jpg" alt="ciencia" class="image-post">
-                <div class="date">
-                    <i class="far fa-clock"></i>
-                    <span>27 oct, 2021</span>
-                </div>
-                <h3 class="title">Título de blog</h3>
-                <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet repellat voluptatum a veritatis distinctio ex quibusdam omnis culpa. Eum odio temporibus qui quod fuga rem modi esse maiores dicta minima?</p>
-                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima excepturi magnam numquam ratione provident dicta at veniam cumque placeat magni culpa iste eveniet, sunt blanditiis odio deserunt, quam porro velit.</p>
-                <div class="links">
-                    <a href="#" class="user">
-                        <i class="far fa-user"></i>
-                        <span>by admin</span>
-                    </a>
-                    <a href="#" class="icon">
-                        <i class="far fa-comment"></i>
-                        <span>(45)</span>
-                    </a>
-                    <a href="#" class="icon">
-                        <i class="far fa-share-square"></i>
-                        <span>(29)</span>
-                    </a>
-                </div>
+           
+           {% for post in posts %}
+           <div class="post">
+            <img src="https://www.educaciontrespuntocero.com/wp-content/uploads/2019/10/3314.jpg" alt="ciencia" class="image-post">
+            <div class="date">
+                <i class="far fa-clock"></i>
+                <span>27 oct, 2021</span>
             </div>
+            <h3 class="title">{{ post.title }}</h3>
+            <p class="text">{{ post.body }}</p>
+            <div class="links">
+                <a href="#" class="user">
+                    <i class="far fa-user"></i>
+                    <span>by {{post.author}}</span>
+                </a>
+                <a href="#" class="icon">
+                    <i class="far fa-comment"></i>
+                    <span>(45)</span>
+                </a>
+                <a href="#" class="icon">
+                    <i class="far fa-share-square"></i>
+                    <span>(29)</span>
+                </a>
+            </div>
+        </div>
+           {% endfor %}
+               
 
-            <div class="post">
-                <img src="https://484714.smushcdn.com/974887/wp-content/uploads/2021/04/telos-cov-def.png?lossy=1&strip=1&webp=1" alt="ciencia" class="image-post">
-                <div class="date">
-                    <i class="far fa-clock"></i>
-                    <span>27 oct, 2021</span>
-                </div>
-                <h3 class="title">Título de blog</h3>
-                <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet repellat voluptatum a veritatis distinctio ex quibusdam omnis culpa. Eum odio temporibus qui quod fuga rem modi esse maiores dicta minima?</p>
-                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima excepturi magnam numquam ratione provident dicta at veniam cumque placeat magni culpa iste eveniet, sunt blanditiis odio deserunt, quam porro velit.</p>
-                <div class="links">
-                    <a href="#" class="user">
-                        <i class="far fa-user"></i>
-                        <span>by admin</span>
-                    </a>
-                    <a href="#" class="icon">
-                        <i class="far fa-comment"></i>
-                        <span>(45)</span>
-                    </a>
-                    <a href="#" class="icon">
-                        <i class="far fa-share-square"></i>
-                        <span>(29)</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="post">
-                <img src="https://monitorsonora.com/wp-content/uploads/2021/03/cientificos.jpg" alt="ciencia" class="image-post">
-                <div class="date">
-                    <i class="far fa-clock"></i>
-                    <span>27 oct, 2021</span>
-                </div>
-                <h3 class="title">Título de blog</h3>
-                <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet repellat voluptatum a veritatis distinctio ex quibusdam omnis culpa. Eum odio temporibus qui quod fuga rem modi esse maiores dicta minima?</p>
-                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima excepturi magnam numquam ratione provident dicta at veniam cumque placeat magni culpa iste eveniet, sunt blanditiis odio deserunt, quam porro velit.</p>
-                <div class="links">
-                    <a href="#" class="user">
-                        <i class="far fa-user"></i>
-                        <span>by admin</span>
-                    </a>
-                    <a href="#" class="icon">
-                        <i class="far fa-comment"></i>
-                        <span>(45)</span>
-                    </a>
-                    <a href="#" class="icon">
-                        <i class="far fa-share-square"></i>
-                        <span>(29)</span>
-                    </a>
-                </div>
-            </div>
+            
 
         </div>
 
@@ -246,6 +203,6 @@
     
 
 
-    <script src="./js/main.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
