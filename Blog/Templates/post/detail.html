@@ -1,15 +1,9 @@
 {% extends 'base.html' %}
 
-           
-           
-               
 
-  
-  {% block content %}
-      
-  {% for post in posts %}
-  
-   <img src="https://www.educaciontrespuntocero.com/wp-content/uploads/2019/10/3314.jpg" alt="ciencia" class="image-post">
+
+{% block content %}
+<img src="https://www.educaciontrespuntocero.com/wp-content/uploads/2019/10/3314.jpg" alt="ciencia" class="image-post">
    <div class="date">
        <i class="far fa-clock"></i>
        <span>27 oct, 2021</span>
@@ -30,9 +24,11 @@
            <span>(29)</span>
        </a>
    </div>
-   
-  {% endfor %}
+    
+{% endblock content %}
+    
 
-   {% include 'pagination.html' with page=page_obj  %}
-  {% endblock content %}
-      
+{% block sidebar %}
+
+{% endblock sidebar %}
+    
