@@ -9,10 +9,10 @@
       
   {% for post in posts %}
   
-   <img src="https://www.educaciontrespuntocero.com/wp-content/uploads/2019/10/3314.jpg" alt="ciencia" class="image-post">
+   <a href="{{post.get_absolute_url }}"><img src="https://www.educaciontrespuntocero.com/wp-content/uploads/2019/10/3314.jpg" alt="ciencia" class="image-post"></a>
    <div class="date">
        <i class="far fa-clock"></i>
-       <span>27 oct, 2021</span>
+       <span>{{post.created|date:"d/m/Y"}}</span>
    </div>
    <h3 class="title">{{ post.title }}</h3>
    <p class="text">{{ post.body }}</p>

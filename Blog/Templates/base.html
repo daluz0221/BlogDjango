@@ -12,6 +12,11 @@
 
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     
+    {% block css %}
+       
+    {% endblock css %}
+        
+    
     <title>Blog</title>
 </head>
 <body>
@@ -22,7 +27,7 @@
 <!-- header starts -->
 <header class="header">
 
-    <a href="#" class="logo">Blog <span>Personal</span></a>
+    <a href="{% url 'post:post_list' %}" class="logo">Blog <span>Personal</span></a>
 
     <nav class="navbar">
         <a href="#banner">Banner</a>
@@ -46,6 +51,8 @@
 
 <!-- Banner section starts -->
 
+
+{% block banner %}
 <section id="banner" class="banner">
 
     <div class="content">
@@ -55,12 +62,19 @@
     </div>
 
 </section>
+{% endblock banner %}
+    
 
 <!-- Banner section ends -->
 
 
 <!-- post section starts -->
-
+    
+    
+    
+        
+    
+    {% block main %}
     <section id="#posts" class="container">
 
         <div class="posts-container">
@@ -135,12 +149,16 @@
             
 
     </section>
-
+    {% endblock main %}
+        
+    
 <!-- post section ends -->
 
 
 <!-- contact section starts -->
 
+    
+    {% block contact %}
     <section class="contact">
 
         <form action="">
@@ -158,6 +176,8 @@
         </form>
 
     </section>
+    {% endblock contact %}
+        
 
 <!-- contact section ends -->
 

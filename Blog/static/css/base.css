@@ -48,6 +48,7 @@ section{
 
 .btn:hover{
     background: var(--old-mauve);
+    color: #fff;
 }
 
 .header{
