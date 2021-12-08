@@ -130,12 +130,13 @@ section{
     height: 100%;
 }
 
-.header .searchform label{
+.header .searchform button{
     font-size: 2rem;
     padding-left: 1rem;
     padding-right: .5rem;
     cursor: pointer;
     color: var(--black);
+    
 }
 
 .header .searchform label:hover{
@@ -337,7 +338,7 @@ section{
     color: #fff;
     border-radius: .5rem;
     padding: .5rem;
-
+    text-decoration: none;
 }
 
 .container .sidebar .box .categoria a:hover

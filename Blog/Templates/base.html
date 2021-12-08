@@ -30,9 +30,7 @@
     <a href="{% url 'post:post_list' %}" class="logo">Blog <span>Personal</span></a>
 
     <nav class="navbar">
-        <a href="#banner">Banner</a>
-        <a href="#posts">Post</a>
-        <a href="#contact">Contact me</a>
+        <a href="{% url 'post:contacto' %}">Contáctame</a>
     </nav>
 
     <div class="icons">
@@ -40,9 +38,14 @@
         <i class="fas fa-search" id="search-icon"></i>
     </div>
 
-    <form class="searchform">
+    <form class="searchform" action="{% url 'post:post_list_palabra_clave' %}" method="GET">
+        {% csrf_token %}
         <input type="text" name="search" id="search" placeholder="Buscar blog..." class="search-box">
-        <label for="search" class="fas fa-search"></label>
+        <button type="submit" style="font-size: 2rem;
+        padding-left: 1rem;
+        padding-right: .5rem;
+        cursor: pointer;
+        color: var(--black);"   class="fas fa-search"></button>
     </form>
 
 </header>
@@ -58,7 +61,7 @@
     <div class="content">
         <h3>La ciencia está aquí!</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, aspernatur debitis. </p>
-        <a href="#" class="btn">Mis blogs</a>
+        
     </div>
 
 </section>
@@ -105,44 +108,24 @@
                     </div>
                 
             </div>
+            
+            {% block categorias %}
+                
+            
+            
+            {% endblock categorias %}
 
-            <div class="box">
-                <h3 class="title">Categorias</h3>
-                <div class="categoria">
-                    <a href="#">Viajes <span>12</span></a>
-                    <a href="#">Tecnología <span>10</span></a>
-                    <a href="#">Ciencia <span>14</span></a>
-                    <a href="#">Educación <span>08</span></a>
-                    <a href="#">Avances <span>05</span></a>
-                </div>
-            </div>
-
-            <div class="box">
-                <h3 class="title">Posts populares</h3>
-                <div class="p-post">
-                    <a href="#">
-                        <h3>01. titulo de blog</h3>
-                        <span><i class="far fa-clock"></i>27 oct, 2021</span>
-                    </a>
-                    <a href="#">
-                        <h3>02. titulo de blog</h3>
-                        <span><i class="far fa-clock"></i>27 oct, 2021</span>
-                    </a>
-                    <a href="#">
-                        <h3>03. titulo de blog</h3>
-                        <span><i class="far fa-clock"></i>27 oct, 2021</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="box">
-                <h3 class="title">Tags populares</h3>
-                <div class="tags">
-                    <a href="#">ciencia</a>
-                    <a href="#">avances</a>
-                    <a href="#">descubrimientos</a>
-                </div>
-            </div>
+            
+            {% block popular_post %}
+                
+            {% endblock popular_post %}
+                
+            
+            {% block popular_tags %}
+                
+            {% endblock popular_tags %}
+                
+            
 
         </div>
         {% endblock sidebar %}
