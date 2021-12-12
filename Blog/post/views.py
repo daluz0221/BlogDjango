@@ -29,10 +29,10 @@ class PostTagListView(ListView):
     paginate_by = 2
     template_name = 'post/list.html'
 
-    print('gg')
+   
     def get_queryset(self):
         tag = self.kwargs['tag']
-        print('llegue')
+       
         return Post.objects.filter(
             tags__name=tag
         ).order_by('publish')
@@ -53,13 +53,13 @@ class PostKeyWordsListView(ListView):
     paginate_by = 2
     template_name = 'post/list2.html'
 
-    print('gg2')
+    
     def get_queryset(self):
         palabra_clave = self.request.GET.get("search", '')
         lista = Post.objects.filter(
             title__icontains=palabra_clave
         ).order_by('publish')
-        print(lista)
+       
         return lista
     
     def get_context_data(self, **kwargs):
@@ -77,10 +77,10 @@ class PostCategoryListView(ListView):
     paginate_by = 2
     template_name = 'post/list.html'
 
-    print('gg')
+    
     def get_queryset(self):
         categoria = self.kwargs['categoria']
-        print('llegue')
+        
         return Post.objects.filter(
             category__name=categoria
         ).order_by('publish')
@@ -103,8 +103,7 @@ def post_detail(request, year, month, day, post):
     for tag in post.tags.all():
     
         tag.views = tag.views + 1
-        print(tag.views)
-        print(tag)
+        
         tag.save()
     post.save()
     popular_post = Post.objects.all().order_by('-view')[:3]
@@ -125,11 +124,11 @@ def contacto(request):
 
     if request.method == 'POST':
         form = EmailBlogForm(request.POST)
-        print('fase 1')
+        
         if form.is_valid():
             cd = form.cleaned_data
             #enviamos el correo
-            print('mefui')
+            
             subject = F"{cd['nombre']} {cd['apellido']} te escribió desde tu blog"
             message = F"comentarios de {cd['nombre']}: {cd['comentarios']}\n\nSu correo es: {cd['email']}"
             send_mail(subject, message, 'daluz0221@gmail.com', ['daluz0221@gmail.com'])
